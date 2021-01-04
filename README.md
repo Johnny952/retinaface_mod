@@ -1,5 +1,5 @@
 # Original Script
-This is a modification of RetinaFace to use different types of backbones like EfficientNet or VoVNet for example. The original code can be found [here](https://github.com/rwightman/pytorch-image-models)
+This is a modification of RetinaFace to use different types of backbones like EfficientNet or VoVNet for example. The original code can be found [here](https://github.com/biubug6/Pytorch_Retinaface)
 
 
 # RetinaFace in PyTorch
