@@ -28,6 +28,7 @@ parser.add_argument('--resume_epoch', default=0, type=int, help='resume iter for
 parser.add_argument('--weight_decay', default=5e-4, type=float, help='Weight decay for SGD')
 parser.add_argument('--gamma', default=0.1, type=float, help='Gamma update for SGD')
 parser.add_argument('--save_folder', default='./weights/', help='Location to save checkpoint models')
+parser.add_argument('--optim', default='sgd', help='Optimizer')
 
 args = parser.parse_args()
 
@@ -91,10 +92,16 @@ else:
 cudnn.benchmark = True
 
 
-#optimizer = optim.SGD(net.parameters(), lr=initial_lr, momentum=momentum, weight_decay=weight_decay)
-#optimizer = optim.Adam(net.parameters(), lr=initial_lr, weight_decay=weight_decay)
-#optimizer = AdamP(net.parameters(), lr=initial_lr, betas=(0.9, 0.999), weight_decay=weight_decay)
-optimizer = SGDP(net.parameters(), lr=initial_lr, weight_decay=weight_decay, momentum=momentum, nesterov=True)
+if args.optim == "sgd":
+    optimizer = optim.SGD(net.parameters(), lr=initial_lr, momentum=momentum, weight_decay=weight_decay)
+elif args.optim == "adam":
+    optimizer = optim.Adam(net.parameters(), lr=initial_lr, weight_decay=weight_decay)
+elif args.optim == "adamp":
+    optimizer = AdamP(net.parameters(), lr=initial_lr, betas=(0.9, 0.999), weight_decay=weight_decay)
+elif args.optim == "sgdp":
+    optimizer = SGDP(net.parameters(), lr=initial_lr, weight_decay=weight_decay, momentum=momentum, nesterov=True)
+else:
+    raise ValueError("Optimizer not implemented yet.")
 criterion = MultiBoxLoss(num_classes, 0.35, True, 0, True, 7, 0.35, False)
 scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=max_epoch)
 
