@@ -110,6 +110,9 @@ with torch.no_grad():
     priors = priorbox.forward()
     priors = priors.cuda()
 
+#NO_DECAY_OPTIM = (optim.Adam, AdamP)
+NO_DECAY_OPTIM = ()
+
 def train():
     net.train()
     epoch = 0 + args.resume_epoch
@@ -136,7 +139,7 @@ def train():
                 torch.save(net.state_dict(), save_folder + cfg['name']+ '_epoch_' + str(epoch) + '.pth')
             epoch += 1
             
-            if not isinstance(optimizer, (optim.Adam, AdamP)):
+            if not isinstance(optimizer, NO_DECAY_OPTIM):
                 if iteration != 0:
                     scheduler.step()
                 lr = scheduler.get_last_lr()[0]
