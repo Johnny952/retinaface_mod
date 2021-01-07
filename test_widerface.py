@@ -74,6 +74,14 @@ if __name__ == '__main__':
         cfg = cfg_mnet
     elif args.network == "resnet50":
         cfg = cfg_re50
+    elif args.network == "effnet":
+        cfg = cfg_effnet
+    elif args.network == "vovnet":
+        cfg = cfg_vovnet
+    elif args.network == "selecsls":
+        cfg = cfg_selecsls
+    elif args.network == "tresnet":
+        cfg = cfg_tresnet
     # net and model
     net = RetinaFace(cfg=cfg, phase = 'test')
     net = load_model(net, args.trained_model, args.cpu)
