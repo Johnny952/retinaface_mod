@@ -67,6 +67,7 @@ def load_model(model, pretrained_path, load_to_cpu):
 
 
 if __name__ == '__main__':
+    print("Testing net: {}".format(args.network))
     torch.set_grad_enabled(False)
 
     cfg = None
