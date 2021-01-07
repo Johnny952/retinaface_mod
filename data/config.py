@@ -77,7 +77,7 @@ cfg_vovnet = {
     'gpu_train': True,
     'batch_size': 64,#32
     'ngpu': 1,
-    'epoch': 180,
+    'epoch': 150,
     'decay1': 190,
     'decay2': 220,
     'image_size': 640,
@@ -97,7 +97,7 @@ cfg_selecsls = {
     'gpu_train': True,
     'batch_size': 64,#32
     'ngpu': 1,
-    'epoch': 180,
+    'epoch': 150,
     'decay1': 190,
     'decay2': 220,
     'image_size': 640,
@@ -117,7 +117,7 @@ cfg_tresnet = {
     'gpu_train': True,
     'batch_size': 64,#32
     'ngpu': 1,
-    'epoch': 180,
+    'epoch': 150,
     'decay1': 190,
     'decay2': 220,
     'image_size': 640,

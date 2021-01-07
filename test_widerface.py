@@ -113,6 +113,7 @@ if __name__ == '__main__':
         target_size = 1600
         max_size = 2150
         im_shape = img.shape
+        print(im_shape)
         im_size_min = np.min(im_shape[0:2])
         im_size_max = np.max(im_shape[0:2])
         resize = float(target_size) / float(im_size_min)
