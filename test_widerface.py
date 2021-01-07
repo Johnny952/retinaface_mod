@@ -102,7 +102,7 @@ if __name__ == '__main__':
     num_images = len(test_dataset)
 
     _t = {'forward_pass': Timer(), 'misc': Timer()}
-    print(test_dataset)
+    print(test_dataset[:10])
     # testing begin
     for i, img_name in enumerate(test_dataset):
         image_path = testset_folder + img_name
