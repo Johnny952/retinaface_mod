@@ -102,7 +102,7 @@ if __name__ == '__main__':
     num_images = len(test_dataset)
 
     _t = {'forward_pass': Timer(), 'misc': Timer()}
-
+    print(test_dataset)
     # testing begin
     for i, img_name in enumerate(test_dataset):
         image_path = testset_folder + img_name
@@ -113,8 +113,6 @@ if __name__ == '__main__':
         target_size = 1600
         max_size = 2150
         im_shape = img.shape
-        print(img_name)
-        print(im_shape)
         im_size_min = np.min(im_shape[0:2])
         im_size_max = np.max(im_shape[0:2])
         resize = float(target_size) / float(im_size_min)
